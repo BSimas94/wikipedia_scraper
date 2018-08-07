@@ -18,8 +18,8 @@ curs.execute("USE wikipedia")
 
 # SCRAPE 1000 RANDOM PAGES FROM WIKIPEDIA
 pages = wiki.random(pages=10)
-count1 = 0
-while count1 < 100:
+count = 0
+while count < 100:
     for i in pages:
         try:
             curs.execute("INSERT INTO Page (Title, Summary) VALUES (?, ?)",
@@ -50,7 +50,7 @@ while count1 < 100:
             cnxn.commit()
         except:
             pass
-    count1 += 1
+    count += 1
     pages = wiki.random(pages=10)
 
 
